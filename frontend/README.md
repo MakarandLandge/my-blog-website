@@ -223,3 +223,40 @@ Live: [my-blog-website-steel.vercel.app](https://my-blog-website-steel.vercel.ap
 | Database | MongoDB, Mongoose |
 | Auth | JWT, bcryptjs |
 | Deployment | Vercel |
+
+---
+
+## 🔒 Security
+
+**Never commit `.env` files to GitHub.** Make sure your `.gitignore` includes:
+
+```
+.env
+backend/.env
+frontend/.env
+node_modules/
+```
+
+If you accidentally pushed `.env`:
+1. Rotate your MongoDB password immediately on Atlas
+2. Generate a new JWT secret
+3. Run `git rm --cached backend/.env` then push again
+
+---
+
+## 🌐 Environment Variables
+
+### Backend (`backend/.env`)
+```env
+PORT=5000
+MONGO_URI=mongodb+srv://<user>:<password>@cluster.mongodb.net/simple-blog
+JWT_SECRET=your_secret_key
+ADMIN_USERNAME=your_admin_username
+```
+
+### Frontend (`frontend/.env`)
+```env
+REACT_APP_API_URL=https://your-backend-url.onrender.com
+```
+
+> Without `REACT_APP_API_URL` set, the frontend defaults to `localhost:5000` which won't work in production.
