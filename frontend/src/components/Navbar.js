@@ -48,7 +48,7 @@ const Navbar = ({ postCount = 0, theme, onThemeToggle }) => {
           </>
         ) : (
           <>
-            <Link to="/login" className="nav-link">login</Link>
+            <Link to="/login" className="nav-link mobile-menu-item" onClick={closeMenu}>login</Link>
             <Link to="/register" className="btn btn-sm btn-primary">register</Link>
           </>
         )}
