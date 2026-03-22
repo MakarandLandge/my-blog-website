@@ -1495,13 +1495,6 @@ button[type="submit"]:hover:not(:disabled),
 
 	.card-title { flex: 1; min-width: 0; }
 
-	.card-actions {
-		flex: 0 0 100%;
-		flex-direction: row !important;
-		gap: 0.4rem;
-		margin-top: 0.25rem;
-	}
-
 	.card-actions .action-btn {
 		flex: 1;
 		height: 28px !important;
@@ -1527,6 +1520,19 @@ button[type="submit"]:hover:not(:disabled),
 		height: 36px !important;
 		padding: 0 0.6rem !important;
 	}
+	.desktop-actions { display: none !important; }
+		.mobile-actions {
+		display: flex !important;
+		gap: 0.4rem;
+		margin: 0.75rem 0;
+	}
+	.mobile-actions .action-btn {
+		flex: 1;
+		height: 36px !important;
+		padding: 0 0.6rem !important;
+		writing-mode: horizontal-tb !important;
+		white-space: nowrap;
+	}
 }
 .mobile-actions { display: none; }
-.desktop-actions { display: flex; }
+.desktop-actions { display: flex; gap: 0.4rem; }
