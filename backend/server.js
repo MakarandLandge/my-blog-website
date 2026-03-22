@@ -9,7 +9,13 @@ const adminRoutes = require("./routes/adminRoutes");
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://my-blog-website-steel.vercel.app',
+    'http://localhost:3000'
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 app.use("/posts", postRoutes);

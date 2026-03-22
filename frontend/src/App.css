@@ -1672,3 +1672,335 @@ button[type="submit"]:hover:not(:disabled),
 [data-theme="light"] .custom-toast {
   background: rgba(255, 255, 255, 0.85) !important;
 }
+
+/* ===== MOBILE RESPONSIVE FIXES ===== */
+
+/* Navbar: stack on small screens */
+@media (max-width: 600px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0.6rem 0.75rem;
+  }
+
+  .navbar .logo {
+    flex: 1 1 100%;
+    margin-bottom: 4px;
+  }
+
+  .navbar .nav-links,
+  .navbar .nav-right,
+  .navbar .nav-actions {
+    flex-wrap: wrap;
+    gap: 5px;
+    width: 100%;
+  }
+
+  .navbar button,
+  .navbar a {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+
+  /* REGISTER button specifically */
+  .navbar .register-btn,
+  .navbar .btn-register {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+/* Main container: remove any fixed width */
+@media (max-width: 768px) {
+  .container,
+  .main-container,
+  .app-wrapper,
+  .content-wrapper,
+  main {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0.75rem !important;
+    margin: 0 !important;
+  }
+
+  /* Layout: stack columns vertically */
+  .layout,
+  .two-col,
+  .grid-layout,
+  .posts-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem;
+  }
+
+  /* Post form: full width */
+  .post-form,
+  .new-post-form {
+    width: 100% !important;
+  }
+
+  /* Post list: full width */
+  .post-list,
+  .posts-container {
+    width: 100% !important;
+  }
+
+  /* Post card: ensure no overflow */
+  .post-card {
+    width: 100% !important;
+    overflow: hidden;
+    word-break: break-word;
+  }
+
+  /* Footer: full width */
+  footer,
+  .footer {
+    width: 100% !important;
+    text-align: center;
+    flex-direction: column !important;
+    gap: 4px;
+    font-size: 0.75rem;
+    padding: 0.75rem;
+  }
+}
+
+/* ── MOBILE FIX — replace previous mobile overrides ── */
+@media (max-width: 600px) {
+
+  /* Navbar: two rows — brand top, actions bottom */
+  .navbar {
+    height: auto;
+    flex-wrap: wrap;
+    padding: 0.6rem 1rem;
+    gap: 0.5rem;
+  }
+
+  .navbar-left {
+    flex: 1 1 100%;
+  }
+
+  .navbar-brand {
+    gap: 0.4rem;
+  }
+
+  .brand-prefix {
+    font-size: 0.6rem;
+  }
+
+  .brand-name {
+    font-size: 1.5rem;
+  }
+
+  /* Actions row: fills full width, wraps neatly */
+  .navbar-right {
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  /* Hide verbose items */
+  .status-dot,
+  .post-count-badge,
+  .navbar-user {
+    display: none;
+  }
+
+  /* All nav buttons same compact size */
+  .navbar-right .theme-toggle,
+  .navbar-right .btn-logout,
+  .navbar-right .nav-link,
+  .navbar-right .btn-sm,
+  .navbar-right .admin-nav-link {
+    height: 28px;
+    padding: 0 0.7rem;
+    font-size: 0.65rem;
+  }
+
+  /* Register fills remaining space */
+  .navbar-right .btn-primary {
+    flex: 1;
+  }
+
+  /* Fix footer side gap on mobile */
+  .site-footer {
+    max-width: 100%;
+    padding: 0.85rem 1rem;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+  }
+
+  /* Tighten main content padding */
+  .main-content {
+    padding: 1rem 0.85rem;
+  }
+}
+
+/* ── HAMBURGER ───────────────────────────────── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: transparent;
+  border: 1px solid var(--border);
+  padding: 6px 8px;
+  cursor: crosshair;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.ham-line {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--text);
+  transition: all 0.2s ease;
+}
+
+/* Animate to X when open */
+.ham-line.open:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.ham-line.open:nth-child(2) {
+  opacity: 0;
+}
+.ham-line.open:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── MOBILE MENU DROPDOWN ────────────────────── */
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  border-bottom: 2px solid var(--border);
+  flex-direction: column;
+  padding: 0.75rem 1rem;
+  gap: 0.5rem;
+  z-index: 99;
+}
+
+.mobile-menu-item {
+  width: 100% !important;
+  text-align: left !important;
+  justify-content: flex-start !important;
+  height: 36px !important;
+  font-size: 0.75rem !important;
+}
+
+/* ── SHOW/HIDE AT BREAKPOINT ─────────────────── */
+@media (max-width: 600px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-right {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-right {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+
+  /* Fix: keep logo left, hamburger right, same row */
+  .navbar {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    padding: 0.6rem 1rem;
+  }
+
+  .navbar-left {
+    flex: 1;
+  }
+
+  /* Fix: logo size */
+  .brand-name {
+    font-size: 1.8rem;
+  }
+
+  .brand-prefix {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Remove this line or override it */
+  .post-count-badge {
+    display: inline-flex !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    padding: 0.6rem 1rem;
+  }
+
+  .navbar-left {
+    flex: 1;
+  }
+
+  /* Stack $ RUN above THEBLOG */
+  .navbar-brand {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
+  }
+
+  .brand-prefix {
+    font-size: 0.6rem;
+  }
+
+  .brand-name {
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+
+  /* Show post count directly in navbar */
+  .post-count-badge {
+    display: inline-flex !important;
+  }
+
+  .navbar-right {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+}
+
+.mobile-nav-right {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .mobile-nav-right {
+    display: flex;
+  }
+}
