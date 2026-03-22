@@ -2000,7 +2000,14 @@ button[type="submit"]:hover:not(:disabled),
 }
 
 @media (max-width: 600px) {
-  .mobile-nav-right {
-    display: flex;
-  }
+	.mobile-nav-right {
+    	display: flex;
+  	}
+	.action-btn,
+	.btn-edit,
+	.btn-delete {
+		height: 28px !important;
+		padding: 0 0.6rem !important;
+		writing-mode: horizontal-tb !important;
+	}
 }
