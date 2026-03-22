@@ -1516,4 +1516,17 @@ button[type="submit"]:hover:not(:disabled),
 		width: 100% !important;
 		flex: unset !important;
 	}
+	.desktop-actions { display: none; }
+	.mobile-actions {
+		display: flex;
+		gap: 0.4rem;
+		margin: 0.75rem 0;
+	}
+	.mobile-actions .action-btn {
+		flex: 1;
+		height: 36px !important;
+		padding: 0 0.6rem !important;
+	}
 }
+.mobile-actions { display: none; }
+.desktop-actions { display: flex; }

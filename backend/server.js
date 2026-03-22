@@ -23,6 +23,7 @@ app.use("/auth",  authRoutes);
 app.use("/admin", adminRoutes);
 
 app.get("/", (req, res) => res.json({ message: "Blog API is running" }));
+app.get("/ping", (req, res) => res.send("pong"));
 
 const PORT = process.env.PORT || 5000;
 

@@ -112,7 +112,7 @@ const PostList = () => {
                   </span>
                   <span className="card-title">{post.title}</span>
                   {user && post.userId === user._id && (
-                    <div className="card-actions" onClick={(e) => e.stopPropagation()}>
+                    <div className="card-actions desktop-actions" onClick={(e) => e.stopPropagation()}>
                       <button
                         className="action-btn edit"
                         onClick={(e) => { e.stopPropagation(); setEditingPost(post); }}
@@ -130,6 +130,23 @@ const PostList = () => {
                 </div>
 
                 <p className="card-content">{post.content}</p>
+
+                {user && post.userId === user._id && (
+                  <div className="card-actions mobile-actions" onClick={(e) => e.stopPropagation()}>
+                    <button
+                      className="action-btn edit"
+                      onClick={(e) => { e.stopPropagation(); setEditingPost(post); }}
+                    >
+                      edit
+                    </button>
+                    <button
+                      className="action-btn delete"
+                      onClick={(e) => handleDelete(e, post._id)}
+                    >
+                      del
+                    </button>
+                  </div>
+                )}
 
                 <div className="card-footer">
                   <div className="post-meta">
