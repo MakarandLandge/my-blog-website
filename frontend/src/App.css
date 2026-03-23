@@ -1015,9 +1015,14 @@ button[type="submit"]:hover:not(:disabled),
 
 /* ── ADMIN ───────────────────────────────────── */
 .admin-container {
-	max-width: 1100px;
+	max-width: 100%;
 	margin: 0 auto;
 	padding: 2rem 0;
+}
+
+.main-content:has(.admin-container) {
+  max-width: 1100px;
+  padding: 2.5rem 1.5rem;
 }
 
 .admin-header {
@@ -1185,6 +1190,8 @@ button[type="submit"]:hover:not(:disabled),
 	table-layout: fixed;
 }
 
+
+
 .admin-table thead tr {
 	background: var(--bg3);
 	border-bottom: 1px solid var(--border);
@@ -1208,9 +1215,6 @@ button[type="submit"]:hover:not(:disabled),
 	border-bottom: 1px solid var(--border);
 	color: var(--text-muted);
 	vertical-align: middle;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
 }
 
 .admin-table tbody tr {
@@ -1223,16 +1227,32 @@ button[type="submit"]:hover:not(:disabled),
 
 .admin-table th:nth-child(4),
 .admin-table td:nth-child(4) { 
-	display: none; 
-	max-width: 250px;
+	max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.admin-table td:nth-child(3),
+.admin-table th:nth-child(3) {
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .admin-table th:last-child,
-.admin-table td:last-child { min-width: 180px; }
+.admin-table td:last-child { min-width: auto;}
 
 .row-banned td { opacity: 0.5; }
 .col-index { color: var(--green) !important; font-weight: 700; }
 .col-username { color: var(--text) !important; font-weight: 600; }
+.col-preview {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .text-dim { color: var(--text-dim); }
 
 .you-badge {

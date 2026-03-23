@@ -9,6 +9,7 @@ import PostDetail from "./pages/PostDetail";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AdminPanel from "./pages/admin/AdminPanel";
+import UserDetail from "./pages/admin/UserDetail";
 import { fetchPosts } from "./api";
 
 import "./App.css";
@@ -81,6 +82,7 @@ function AppInner() {
           <Route path="/login"    element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/admin"    element={<AdminPanel />} />
+          <Route path="/admin/users/:id" element={<UserDetail />} />
         </Routes>
       </main>
 

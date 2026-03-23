@@ -193,33 +193,27 @@ const AdminPanel = () => {
                   <tr>
                     <th>#</th>
                     <th>USERNAME</th>
-                    <th>EMAIL</th>
-                    <th>HASHED PASSWORD</th>
                     <th>ROLE</th>
                     <th>STATUS</th>
-                    <th>JOINED</th>
                     <th>ACTIONS</th>
                   </tr>
                 </thead>
                 <tbody>
                   {filteredUsers.length === 0 ? (
-                    <tr><td colSpan={8} className="admin-empty">no users found</td></tr>
+                    <tr><td colSpan={4} className="admin-empty">no users found</td></tr>
                   ) : filteredUsers.map((u, i) => (
                     <tr key={u._id} className={u.isBanned ? "row-banned" : ""}>
                       <td className="col-index">
                         #{String(filteredUsers.length - i).padStart(3, "0")}
                       </td>
-                      <td className="col-username">
+                      <td className="col-username"
+                        style={{ cursor: "crosshair" }}
+                        onClick={() => navigate(`/admin/users/${u._id}`)}
+                      >
                         {u.username}
                         {u.username === user.username && (
                           <span className="you-badge"> YOU</span>
                         )}
-                      </td>
-                      <td className="col-email">{u.email}</td>
-                      <td className="col-hash" title={u.password}>
-                        <span className="hash-preview">
-                          {u.password?.substring(0, 20)}…
-                        </span>
                       </td>
                       <td>
                         <span className={`role-badge role-${u.role}`}>
@@ -231,7 +225,6 @@ const AdminPanel = () => {
                           {u.isBanned ? "BANNED" : "ACTIVE"}
                         </span>
                       </td>
-                      <td className="col-date">{formatDate(u.createdAt)}</td>
                       <td>
                         <div className="admin-row-actions">
                           {/* Don't show role/ban/delete actions on self or root admin */}
@@ -276,7 +269,6 @@ const AdminPanel = () => {
                     <th>#</th>
                     <th>TITLE</th>
                     <th>AUTHOR</th>
-                    <th>ACCOUNT</th>
                     <th>CONTENT PREVIEW</th>
                     <th>CREATED</th>
                     <th>ACTIONS</th>
@@ -284,7 +276,7 @@ const AdminPanel = () => {
                 </thead>
                 <tbody>
                   {filteredPosts.length === 0 ? (
-                    <tr><td colSpan={7} className="admin-empty">no posts found</td></tr>
+                    <tr><td colSpan={6} className="admin-empty">no posts found</td></tr>
                   ) : filteredPosts.map((p, i) => (
                     <tr key={p._id}>
                       <td className="col-index">
@@ -292,9 +284,6 @@ const AdminPanel = () => {
                       </td>
                       <td className="col-title">{p.title}</td>
                       <td className="col-username">~{p.author}</td>
-                      <td className="col-email">
-                        {p.userId?.username || <span className="text-dim">guest</span>}
-                      </td>
                       <td className="col-preview">
                         {p.content?.substring(0, 60)}{p.content?.length > 60 ? "…" : ""}
                       </td>

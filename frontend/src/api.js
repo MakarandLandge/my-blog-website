@@ -30,3 +30,4 @@ export const adminDeletePost    = (id)       => API.delete(`/admin/posts/${id}`)
 export const adminDeleteUser    = (id)       => API.delete(`/admin/users/${id}`);
 export const adminToggleBan     = (id)       => API.put(`/admin/users/${id}/ban`);
 export const adminUpdateRole    = (id, role) => API.put(`/admin/users/${id}/role`, { role });
+export const adminGetUserById = (id) => API.get(`/admin/users/${id}`);

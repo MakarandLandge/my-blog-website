@@ -4,6 +4,7 @@ const { protect, isAdmin } = require("../middleware/authMiddleware");
 const {
   getStats,
   getAllUsers,
+  getUserById,
   updateUserRole,
   toggleBanUser,
   deleteUser,
@@ -22,6 +23,7 @@ router.get("/users", getAllUsers);
 router.put("/users/:id/role", updateUserRole);
 router.put("/users/:id/ban", toggleBanUser);
 router.delete("/users/:id", deleteUser);
+router.get("/users/:id", getUserById);
 
 // Posts
 router.get("/posts", getAllPosts);
