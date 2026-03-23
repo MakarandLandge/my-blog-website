@@ -39,6 +39,7 @@ my-blog-website/
         ├── pages/
         │   ├── admin/
         │   │   └── AdminPanel.js ← Admin dashboard (/admin)
+        │   │   └── UserDetail.js ← User moderation page (/admin/users/:id)  ← ADD
         │   ├── Home.js           ← Main feed page
         │   ├── PostDetail.js     ← Single post view (/post/:id)
         │   ├── Login.js          ← Login page
@@ -128,6 +129,7 @@ App opens at **http://localhost:3000**
 | GET | `/admin/stats` | Dashboard stats |
 | GET | `/admin/users` | All users |
 | GET | `/admin/posts` | All posts |
+| GET | `/admin/users/:id` | Get user + their posts |
 | PUT | `/admin/users/:id/role` | Promote/demote user |
 | PUT | `/admin/users/:id/ban` | Ban/unban user |
 | DELETE | `/admin/users/:id` | Delete user + their posts |
@@ -156,6 +158,7 @@ App opens at **http://localhost:3000**
 | Admin — promote/demote users | ✅ |
 | Admin — ban/unban users | ✅ |
 | Admin — delete any user or post | ✅ |
+| Admin — user detail & moderation page | ✅ |
 | Dark / Light theme toggle | ✅ |
 | Theme persisted in localStorage | ✅ |
 | Responsive design | ✅ |
