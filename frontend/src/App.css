@@ -1182,7 +1182,7 @@ button[type="submit"]:hover:not(:disabled),
 	border-collapse: collapse;
 	font-size: 0.78rem;
 	font-family: var(--mono);
-	table-layout: auto;
+	table-layout: fixed;
 }
 
 .admin-table thead tr {
@@ -1222,7 +1222,10 @@ button[type="submit"]:hover:not(:disabled),
 .admin-table tbody tr:last-child td { border-bottom: none; }
 
 .admin-table th:nth-child(4),
-.admin-table td:nth-child(4) { display: none; }
+.admin-table td:nth-child(4) { 
+	display: none; 
+	max-width: 250px;
+}
 
 .admin-table th:last-child,
 .admin-table td:last-child { min-width: 180px; }
